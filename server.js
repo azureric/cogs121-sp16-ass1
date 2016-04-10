@@ -82,11 +82,11 @@ passport.use(new TwitterStrategy({
 		    "photo": profile.photos.value
         });
         // Refer to Assignment 0 to how create a new instance of a model
-        return done(null, profile);
+        return done(null, newUser);
     } else {
         // (3) since the user is found, update user's information
         process.nextTick(function() {
-            return done(null, profile);
+            return done(null, user);
         });
     }
   });
