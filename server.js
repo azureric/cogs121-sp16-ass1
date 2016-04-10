@@ -10,25 +10,32 @@ const mongoose = require("mongoose");
 const handlebars = require("express-handlebars");
 const passport = require("passport");
 
-
-var index = require('./routes/index');
-
 require("dotenv").load();
+// require('dotenv').config({path: '.env'});
+
+
 var models = require("./models");
 var db = mongoose.connection;
 
 
-var router = { /* TODO */};
+var router = { 
+    index: require('./routes/index')
+};
 
 var parser = {
     body: require("body-parser"),
     cookie: require("cookie-parser")
 };
 
-var strategy = { /* TODO */ };
+// var strategy = { /* TODO */ };
 
 // Database Connection
-/* TODO */
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/cogs121');
+db.on('error', console.error.bind(console, 'Mongo DB Connection Error:'));
+db.once('open', function(callback) {
+    console.log("Database connected successfully.");
+});
+
 
 // session middleware
 var session_middleware = session({
@@ -58,8 +65,8 @@ app.use(passport.session());
 TwitterStrategy = require('passport-twitter').Strategy;
 
 passport.use(new TwitterStrategy({
-    consumerKey: process.env.TWITTER_CONSUMER_KEY,
-    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+    consumerKey: process.env.TWITTER_CONSUMER_KEY , 
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET ,
     callbackURL: "/auth/twitter/callback"
 }, function(token, token_secret, profile, done) {
     // What goes here? Refer to step 4.
@@ -93,7 +100,7 @@ passport.deserializeUser(function(user, done) {
 });
 // Routes
 /* TODO: Routes for OAuth using Passport */
-app.get("/", index.view);
+app.get("/", router.index.view);
 // More routes here if needed
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback',
