@@ -88,7 +88,14 @@ passport.deserializeUser(function(user, done) {
 /* TODO: Routes for OAuth using Passport */
 app.get("/", index.view);
 // More routes here if needed
-
+app.get('/auth/twitter', passport.authenticate('twitter'));
+app.get('/auth/twitter/callback',
+  passport.authenticate('twitter', { successRedirect: '/',
+                                     failureRedirect: '/login' }));
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 // io.use(function(socket, next) {
 //     session_middleware(socket.request, {}, next);
 // });
