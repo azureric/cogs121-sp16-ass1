@@ -77,7 +77,7 @@ passport.use(new TwitterStrategy({
         var newUser = new models.User({
         	"twitterID": profile.id,
 		    "token": token,
-		    "username": profile.name.givenName,
+		    "username": profile.givenName,
 		    "displayName": profile.displayName,
 		    "photo": profile.photos.value
         });
