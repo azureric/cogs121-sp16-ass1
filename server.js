@@ -10,6 +10,9 @@ const mongoose = require("mongoose");
 const handlebars = require("express-handlebars");
 const passport = require("passport");
 
+
+var index = require('./routes/index');
+
 require("dotenv").load();
 var models = require("./models");
 var db = mongoose.connection;
@@ -83,9 +86,16 @@ passport.deserializeUser(function(user, done) {
 });
 // Routes
 /* TODO: Routes for OAuth using Passport */
-// app.get("/", router.index.view);
+app.get("/", index.view);
 // More routes here if needed
-
+app.get('/auth/twitter', passport.authenticate('twitter'));
+app.get('/auth/twitter/callback',
+  passport.authenticate('twitter', { successRedirect: '/',
+                                     failureRedirect: '/login' }));
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 // io.use(function(socket, next) {
 //     session_middleware(socket.request, {}, next);
 // });
