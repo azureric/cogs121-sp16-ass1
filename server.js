@@ -52,7 +52,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* TODO: Use Twitter Strategy for Passport here */
-passport.use(new strategy.Twitter({
+TwitterStrategy = require('passport-twitter').Strategy;
+
+passport.use(new TwitterStrategy({
     consumerKey: process.env.TWITTER_CONSUMER_KEY,
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
     callbackURL: "/auth/twitter/callback"
