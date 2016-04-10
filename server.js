@@ -6,10 +6,14 @@ const http = require("http").createServer(app);
 const path = require("path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const mongoose = require("mongoose");
+const handlebars = require("express-handlebars");
+const passport = require("passport");
 
 require("dotenv").load();
 var models = require("./models");
 var db = mongoose.connection;
+
 
 var router = { /* TODO */};
 
@@ -67,7 +71,7 @@ passport.use(new strategy.Twitter({
         });
     }
   });
-});
+}));
 /* TODO: Passport serialization here */
 passport.serializeUser(function(user, done) {
     done(null, user);
