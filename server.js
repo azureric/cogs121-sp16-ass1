@@ -67,7 +67,7 @@ passport.use(new TwitterStrategy({
     // (1) Check if there is an error. If so, return done(err);
     if(!user) {
         // (2) since the user is not found, create new user.
-        var newUser = new models.user({
+        var newUser = new models.User({
         	"twitterID": profile.id,
 		    "token": token,
 		    "username": profile.name.givenName,
