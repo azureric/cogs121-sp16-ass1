@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
-// const io = require("socket.io")(http);
+const io = require("socket.io")(http);
 const path = require("path");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
@@ -19,7 +19,8 @@ var db = mongoose.connection;
 
 
 var router = { 
-    index: require('./routes/index')
+    index: require('./routes/index'),
+    chat: require('./routes/chat')
 };
 
 var parser = {
@@ -70,17 +71,19 @@ passport.use(new TwitterStrategy({
     callbackURL: "/auth/twitter/callback"
 }, function(token, token_secret, profile, done) {
     // What goes here? Refer to step 4.
+    //console.log(profile);
     models.User.findOne({ "twitterID": profile.id }, function(err, user) {
     // (1) Check if there is an error. If so, return done(err);
     if(!user) {
         // (2) since the user is not found, create new user.
         var newUser = new models.User({
-        	"twitterID": profile.id,
-		    "token": token,
-		    "username": profile.givenName,
-		    "displayName": profile.displayName,
-		    "photo": profile.photos.value
+            "twitterID": profile.id,
+            "token": token,
+            "username": profile.username,
+            "displayName": profile.displayName,
+            "photo": profile.photos[0].value
         });
+
         // Refer to Assignment 0 to how create a new instance of a model
         return done(null, newUser);
     } else {
@@ -101,20 +104,47 @@ passport.deserializeUser(function(user, done) {
 // Routes
 /* TODO: Routes for OAuth using Passport */
 app.get("/", router.index.view);
+app.get("/chat", router.chat.view);
 // More routes here if needed
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback',
-  passport.authenticate('twitter', { successRedirect: '/',
+  passport.authenticate('twitter', { successRedirect: '/chat',
                                      failureRedirect: '/login' }));
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
-// io.use(function(socket, next) {
-//     session_middleware(socket.request, {}, next);
-// });
+io.use(function(socket, next) {
+    session_middleware(socket.request, {}, next);
+});
 
 /* TODO: Server-side Socket.io here */
+io.on('connection', function(socket) {
+    socket.on('newsfeed', function(msg) {
+        try {
+            var user = socket.request.session.passport.user;
+        } catch(err) {
+            console.log("no user authenticated");
+            return;
+        }
+
+        var newNewsfeed = new models.Newsfeed({
+            'user': user.username,
+            'photo': user.photo,
+            'message': msg,
+            'posted': Date.now()
+        });
+
+        newNewsfeed.save(saved);
+        function saved(err) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            io.emit('newsfeed', JSON.stringify(newNewsfeed));
+        }
+    });
+});
 
 // Start Server
 http.listen(app.get("port"), function() {
