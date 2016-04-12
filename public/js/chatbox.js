@@ -2,11 +2,12 @@
     "use strict";
     /* TODO: Start your Javascript code here */
         var socket = io();
-        $('form').submit(function() {
+        $('form').submit(function(event) {
+            event.stopPropagation();
             var userInput = $('#user_input');
             socket.emit('newsfeed', userInput.val()); //get user input
             userInput.val('');                            //clear user input
-            return;
+            return false;
         });
 
         socket.on("newsfeed", function(data) {
@@ -20,10 +21,10 @@
           // generate HTML text based on some data to be prepended into the list
           var result = '<div class="user">' +
                 '<div class="user-image">' +
-                '<img src="' + parsedData.user.photo + '" alt="">' +
+                '<img src="' + parsedData.photo + '" alt="">' +
                 '</div>' +
                 '<div class="user-info">' +
-                '<span class="username">' + parsedData.user.username + '</span><br/>' +
+                '<span class="username">' + parsedData.user + '</span><br/>' +
                 '<span class="posted">' + parsedData.posted + '</span>' +
                 '</div>' +
                 '</div>' +
