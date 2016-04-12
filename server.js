@@ -78,9 +78,9 @@ passport.use(new TwitterStrategy({
         var newUser = new models.User({
         	"twitterID": profile.id,
 		    "token": token,
-		    "username": profile.givenName,
+		    "username": profile.username,
 		    "displayName": profile.displayName,
-		    "photo": profile.photos.value
+		    "photo": profile.photos[0].value
         });
         // Refer to Assignment 0 to how create a new instance of a model
         return done(null, newUser);
@@ -121,13 +121,18 @@ io.on('connection', function(socket) {
     socket.on('newsfeed', function(msg) {
         try {
             var user = socket.request.session.passport.user;
+            console.log('user: ');
+            console.log(user);
         } catch(err) {
             console.log("no user authenticated");
             return;
         }
 
         var newNewsfeed = new models.Newsfeed({
-            'user': user.username,
+            'user': {
+                'photo': user.photo,
+                'username': user.username
+            },
             'message': msg,
             'posted': Date.now()
         });

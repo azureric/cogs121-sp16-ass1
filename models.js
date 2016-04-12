@@ -9,7 +9,7 @@ var UserSchema = new mongoose.Schema({
 });
 
 var NewsfeedSchema = new mongoose.Schema({
-	"user": String,
+	"user": {"photo": String, "username": String},
 	"message": String,
 	"posted": Date
 });
