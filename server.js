@@ -82,7 +82,6 @@ passport.use(new TwitterStrategy({
 		    "username": profile.username,
 		    "displayName": profile.displayName,
 		    "photo": profile.photos[0].value
-            
         });
 
         // Refer to Assignment 0 to how create a new instance of a model
@@ -124,7 +123,6 @@ io.on('connection', function(socket) {
     socket.on('newsfeed', function(msg) {
         try {
             var user = socket.request.session.passport.user;
-            console.log(user);
         } catch(err) {
             console.log("no user authenticated");
             return;
