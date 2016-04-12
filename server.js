@@ -74,6 +74,8 @@ passport.use(new TwitterStrategy({
     //console.log(profile);
     models.User.findOne({ "twitterID": profile.id }, function(err, user) {
     // (1) Check if there is an error. If so, return done(err);
+    if(err) return done(err);
+    
     if(!user) {
         // (2) since the user is not found, create new user.
         var newUser = new models.User({
