@@ -159,20 +159,20 @@ io.on('connection', function(socket) {
             return;
         }
 
-        var newNewsfeed = new models.Newsfeed({
+        var newAnxietyPost = new models.Newsfeed({
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now()
         });
 
-        newNewsfeed.save(saved);
+        newAnxietyPost.save(saved);
         function saved(err) {
             if(err) {
                 console.log(err);
                 return;
             }
-            io.emit('anxiety', JSON.stringify(newNewsfeed));
+            io.emit('anxiety', JSON.stringify(newAnxietyPost));
         }
     });
 });
