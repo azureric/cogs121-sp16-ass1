@@ -24,7 +24,8 @@ var router = {
     homepage: require('./routes/homepage'),
     chatAnxious: require('./routes/chatAnxious'),
     chatDepressed: require('./routes/chatDepressed'),
-    chatStressed: require('./routes/chatStressed')
+    chatStressed: require('./routes/chatStressed'),
+    chatLonely: require('./routes/chatLonely')
 };
 
 var parser = {
@@ -115,6 +116,8 @@ app.get("/homepage", router.homepage.view);
 app.get("/chatAnxious", router.chatAnxious.view);
 app.get("/chatDepressed", router.chatDepressed.view);
 app.get("/chatStressed", router.chatStressed.view);
+app.get("/chatLonely", router.chatLonely.view);
+
 // More routes here if needed
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback',
@@ -233,6 +236,36 @@ io.on('connection', function(socket) {
             io.emit('stressed', JSON.stringify(newStressedPost));
         }
     });
+
+
+
+    socket.on('lonely', function(msg) {
+        try {
+            var user = socket.request.session.passport.user;
+        } catch(err) {
+            console.log("no user authenticated");
+            return;
+        }
+
+        var newLonelyPost = new models.Newsfeed({
+            'type': 'lonely',
+            'user': user.username,
+            'photo': user.photo,
+            'message': msg,
+            'posted': Date.now()
+        });
+        console.log("new lonely post");
+        newLonelyPost.save(saved);
+        function saved(err) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            io.emit('lonely', JSON.stringify(newStressedPost));
+        }
+    });
+
+
 });
 
 // Start Server
