@@ -2,7 +2,7 @@
     "use strict";
     /* TODO: Start your Javascript code here */
         var socket = io();
-        $('form').submit(function(event) {
+        $('form#send_message').submit(function(event) {
             event.stopPropagation();
             var userInput = $('#user_input');
             socket.emit('newsfeed', userInput.val()); //get user input
@@ -36,7 +36,7 @@
     });
 
     // var socket = io();
-    $('form').submit(function(event) {
+    $('form#send_anxious_message').submit(function(event) {
         event.stopPropagation();
         var userInput = $('#user_input');
         socket.emit('anxiety', userInput.val()); //get user input

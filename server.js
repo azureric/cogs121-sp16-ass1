@@ -135,12 +135,13 @@ io.on('connection', function(socket) {
         }
 
         var newNewsfeed = new models.Newsfeed({
+            'type': 'chat',
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now()
         });
-
+        console.log('new newsfeed post');
         newNewsfeed.save(saved);
         function saved(err) {
             if(err) {
@@ -160,12 +161,13 @@ io.on('connection', function(socket) {
         }
 
         var newAnxietyPost = new models.Newsfeed({
+            'type': 'anxiety',
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now()
         });
-
+        console.log("new anxiety post");
         newAnxietyPost.save(saved);
         function saved(err) {
             if(err) {

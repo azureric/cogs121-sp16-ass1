@@ -1,7 +1,7 @@
 var models = require("../models");
 exports.view = function(req, res) {
     /* TODO */
-    models.Newsfeed.find().sort('-posted').exec(displayPosts);
+    models.Newsfeed.find({type: 'anxiety'}).sort('-posted').exec(displayPosts);
 
     function displayPosts(err, posts) {
     	if(err) {

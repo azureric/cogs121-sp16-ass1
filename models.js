@@ -9,6 +9,7 @@ var UserSchema = new mongoose.Schema({
 });
 
 var NewsfeedSchema = new mongoose.Schema({
+	"type": String,
 	"user": String,
 	"photo": String,
 	"message": String,
