@@ -20,7 +20,9 @@ var db = mongoose.connection;
 
 var router = { 
     index: require('./routes/index'),
-    chat: require('./routes/chat')
+    chat: require('./routes/chat'),
+    homepage: require('./routes/homepage'),
+    chatAnxious: require('./routes/chatAnxious')
 };
 
 var parser = {
@@ -107,10 +109,12 @@ passport.deserializeUser(function(user, done) {
 /* TODO: Routes for OAuth using Passport */
 app.get("/", router.index.view);
 app.get("/chat", router.chat.view);
+app.get("/homepage", router.homepage.view);
+app.get("/chatAnxious", router.chatAnxious.view);
 // More routes here if needed
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback',
-  passport.authenticate('twitter', { successRedirect: '/chat',
+  passport.authenticate('twitter', { successRedirect: '/homepage',
                                      failureRedirect: '/login' }));
 app.get('/logout', function(req, res){
   req.logout();
@@ -144,6 +148,31 @@ io.on('connection', function(socket) {
                 return;
             }
             io.emit('newsfeed', JSON.stringify(newNewsfeed));
+        }
+    });
+
+    socket.on('anxiety', function(msg) {
+        try {
+            var user = socket.request.session.passport.user;
+        } catch(err) {
+            console.log("no user authenticated");
+            return;
+        }
+
+        var newNewsfeed = new models.Newsfeed({
+            'user': user.username,
+            'photo': user.photo,
+            'message': msg,
+            'posted': Date.now()
+        });
+
+        newNewsfeed.save(saved);
+        function saved(err) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            io.emit('anxiety', JSON.stringify(newNewsfeed));
         }
     });
 });

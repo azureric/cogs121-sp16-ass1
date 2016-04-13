@@ -35,20 +35,34 @@
         }
     });
 
-    // You may use this for updating new message
-    // function messageTemplate(template) {
-    //     var result = '<div class="user">' +
-    //         '<div class="user-image">' +
-    //         '<img src="' + template.user.photo + '" alt="">' +
-    //         '</div>' +
-    //         '<div class="user-info">' +
-    //         '<span class="username">' + template.user.username + '</span><br/>' +
-    //         '<span class="posted">' + template.posted + '</span>' +
-    //         '</div>' +
-    //         '</div>' +
-    //         '<div class="message-content">' +
-    //         template.message +
-    //         '</div>';
-    //     return result;
-    // }
+    // var socket = io();
+    $('form').submit(function(event) {
+        event.stopPropagation();
+        var userInput = $('#user_input');
+        socket.emit('anxiety', userInput.val()); //get user input
+        userInput.val('');                            //clear user input
+        return false;
+    });
+  
+    socket.on("anxiety", function(data) {
+        var parsedData = JSON.parse(data);
+
+        $('#messages').prepend($('<li>').html(messageTemplate(parsedData)));
+
+        function messageTemplate(parsedData) {
+            var result = '<div class="user">' +
+                '<div class="user-image">' +
+                '<img src="' + parsedData.photo + '" alt="">' +
+                '</div>' +
+                '<div class="user-info">' +
+                '<span class="username">' + parsedData.user + '</span><br/>' +
+                '<span class="posted">' + parsedData.posted + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="message-content">' +
+                parsedData.message +
+                '</div>';
+            return result;
+        }
+    });
 })($);

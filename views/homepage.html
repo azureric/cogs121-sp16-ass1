@@ -1,0 +1,81 @@
+<header>
+    <a class="logout" href="/logout">
+        <div class="logout-button">
+            Logout
+        </div>
+    </a>
+    <div class="search">
+        <svg class="search-icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="#4fa6de" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+        </svg>
+        <input class="filtered-search" placeholder="Search username or messages" autocomplete="off" />
+    </div>
+</header>
+
+<section>
+	<div class="row">
+		<div class="welcome col-md-offset-1 col-md-10">
+			<span class="username">[username], how are you feeling today?</span> 
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-offset-2 col-md-2">
+			<a href="/chatAnxious">
+				<div class="thumbnail tile tile-amethyst tile-medium">
+					<h2 class="homepage-tile">Anxious</h2>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-2">
+			<a href="/chatDepressed">
+				<div class="thumbnail tile tile-midnight-blue tile-medium">
+					<h2 class="homepage-tile">Depressed</h2>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-2">
+			<a href="/chatStressed">
+				<div class="thumbnail tile tile-yellow tile-medium">
+					<h2>Stressed</h2>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-md-2">
+			<a href="/chatLonely">
+				<div class="thumbnail tile tile-carrot tile-medium">
+					<h2>idk :(</h2>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="welcome col-md-offset-1 col-md-10">
+			<span>Make a meetup</span>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-offset-2 col-md-3">
+			<a href="/chatMeetup">
+				<div class="thumbnail tile tile-asbestos tile-wide">
+					<h2>Looking for support</h2>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-offset-2 col-md-3">
+			<a href="/chat">
+				<div class="thumbnail tile tile-alizarin tile-wide">
+					<h2>I'm here to support!</h2>
+				</div>
+			</a>
+		</div>
+	</div>
+</section>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/socket.io.min.js"></script>
+<script src="./js/chatbox.js"></script>
+<script src="./js/search.js"></script>
