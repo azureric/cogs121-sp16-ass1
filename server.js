@@ -22,7 +22,9 @@ var router = {
     index: require('./routes/index'),
     chat: require('./routes/chat'),
     homepage: require('./routes/homepage'),
-    chatAnxious: require('./routes/chatAnxious')
+    chatAnxious: require('./routes/chatAnxious'),
+    chatDepressed: require('./routes/chatDepressed'),
+    chatStressed: require('./routes/chatStressed')
 };
 
 var parser = {
@@ -111,6 +113,8 @@ app.get("/", router.index.view);
 app.get("/chat", router.chat.view);
 app.get("/homepage", router.homepage.view);
 app.get("/chatAnxious", router.chatAnxious.view);
+app.get("/chatDepressed", router.chatDepressed.view);
+app.get("/chatStressed", router.chatStressed.view);
 // More routes here if needed
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback',
@@ -175,6 +179,58 @@ io.on('connection', function(socket) {
                 return;
             }
             io.emit('anxiety', JSON.stringify(newAnxietyPost));
+        }
+    });
+
+    socket.on('depressed', function(msg) {
+        try {
+            var user = socket.request.session.passport.user;
+        } catch(err) {
+            console.log("no user authenticated");
+            return;
+        }
+
+        var newDepressedPost = new models.Newsfeed({
+            'type': 'depressed',
+            'user': user.username,
+            'photo': user.photo,
+            'message': msg,
+            'posted': Date.now()
+        });
+        console.log("new depressed post");
+        newDepressedPost.save(saved);
+        function saved(err) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            io.emit('depressed', JSON.stringify(newDepressedPost));
+        }
+    });
+
+    socket.on('stressed', function(msg) {
+        try {
+            var user = socket.request.session.passport.user;
+        } catch(err) {
+            console.log("no user authenticated");
+            return;
+        }
+
+        var newStressedPost = new models.Newsfeed({
+            'type': 'stressed',
+            'user': user.username,
+            'photo': user.photo,
+            'message': msg,
+            'posted': Date.now()
+        });
+        console.log("new stressed post");
+        newStressedPost.save(saved);
+        function saved(err) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            io.emit('stressed', JSON.stringify(newStressedPost));
         }
     });
 });
