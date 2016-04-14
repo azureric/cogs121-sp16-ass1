@@ -5,7 +5,6 @@ body {
 .welcome {
 	font-weight: bold;
 	font-size: 4em;
-	text-align: center;
 }
 
 .homepage-tile {
@@ -17,6 +16,11 @@ body {
 .back {
 	text-decoration: none;
 	color: #4fa6de;
+}
+
+.twitter-Button 
+{
+	width: 320px;
 }
 
 .back-button {
