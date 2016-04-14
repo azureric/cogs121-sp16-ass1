@@ -5,20 +5,12 @@
         </div>
     </a>
 
+	<div class="welcome col-md-offset-1 col-md-10">
+		<h2 class="username">hello, {{user}}</h2>
+	</div>
 </header>
 
 <section>
-	{{#each welcome_user}}
-	<div class="row">
-		<div class="welcome col-md-offset-1 col-md-10">
-            <!-- {{#each newsfeed}} -->
-				<span class="username">hello, {{user}}</span> 
-			<!-- {{/each}} -->
-
-		</div>
-	</div>
-	{{/each}}
-
 	<div class="row">
 		<div class="col-md-offset-2 col-md-2">
 			<a href="/chatAnxious">
