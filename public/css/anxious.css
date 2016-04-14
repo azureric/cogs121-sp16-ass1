@@ -7,3 +7,9 @@ body {
     background-size: 100%;
     background-position: bottom;
 }
+
+h2 {
+	color: #FFFFFF;
+	text-align: center;
+	font-weight: bold;
+}
