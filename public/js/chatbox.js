@@ -1,6 +1,5 @@
 (function($) {
     "use strict";
-    /* TODO: Start your Javascript code here */
         var socket = io();
         $('form#send_message').submit(function(event) {
             event.stopPropagation();
@@ -34,6 +33,8 @@
             return result;
         }
     });
+<<<<<<< HEAD
+=======
 
     // var socket = io();
     $('form#send_anxious_message').submit(function(event) {
@@ -220,4 +221,5 @@
             return result;
         }
     });
+>>>>>>> 44b3c80663314c8f77eb133daa9fbe079b9561b0
 })($);
