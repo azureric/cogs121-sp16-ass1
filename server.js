@@ -156,7 +156,7 @@ io.on('connection', function(socket) {
             'message': msg,
             'posted': Date.now()
         });
-        console.log('new newsfeed post');
+
         newNewsfeed.save(saved);
         function saved(err) {
             if(err) {
@@ -182,7 +182,7 @@ io.on('connection', function(socket) {
             'message': msg,
             'posted': Date.now()
         });
-        console.log("new anxiety post");
+
         newAnxietyPost.save(saved);
         function saved(err) {
             if(err) {
@@ -208,7 +208,7 @@ io.on('connection', function(socket) {
             'message': msg,
             'posted': Date.now()
         });
-        console.log("new depressed post");
+
         newDepressedPost.save(saved);
         function saved(err) {
             if(err) {
@@ -234,7 +234,7 @@ io.on('connection', function(socket) {
             'message': msg,
             'posted': Date.now()
         });
-        console.log("new stressed post");
+
         newStressedPost.save(saved);
         function saved(err) {
             if(err) {
@@ -261,7 +261,7 @@ io.on('connection', function(socket) {
             'message': msg,
             'posted': Date.now()
         });
-        console.log("new lonely post");
+
         newLonelyPost.save(saved);
         function saved(err) {
             if(err) {
@@ -287,7 +287,7 @@ io.on('connection', function(socket) {
             'message': msg,
             'posted': Date.now()
         });
-        console.log("new meetup post");
+
         newMeetupPost.save(saved);
         function saved(err) {
             if(err) {
@@ -314,7 +314,7 @@ io.on('connection', function(socket) {
             'message': msg,
             'posted': Date.now()
         });
-        console.log("new support post");
+
         newSupportPost.save(saved);
         function saved(err) {
             if(err) {
