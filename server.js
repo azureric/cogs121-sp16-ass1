@@ -28,7 +28,8 @@ var router = {
     chatLonely: require('./routes/chatLonely'),
     chatMeetup: require('./routes/chatMeetup'),
     chatSupport: require('./routes/chatSupport'),
-    landing: require('./routes/landing')
+    landing: require('./routes/landing'),
+    home: require('./routes/home'),
 };
 
 var parser = {
@@ -123,6 +124,7 @@ app.get("/chatLonely", router.chatLonely.view);
 app.get("/chatMeetup", router.chatMeetup.view);
 app.get("/chatSupport", router.chatSupport.view);
 app.get("/landing", router.landing.view);
+app.get("/home", router.home.view);
 
 
 // More routes here if needed
