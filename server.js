@@ -40,7 +40,7 @@ var parser = {
 // var strategy = { /* TODO */ };
 
 // Database Connection
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/cogs121');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/cogs121');
 db.on('error', console.error.bind(console, 'Mongo DB Connection Error:'));
 db.once('open', function(callback) {
     console.log("Database connected successfully.");
