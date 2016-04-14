@@ -27,7 +27,10 @@
                 '</div>' +
                 '<div class="message-content">' +
                 parsedData.message +
-                '</div>';
+                '</div>' +
+                '<div class="messsage"><i class="fa fa-envelope-o" aria-hidden="true"></i>' +
+                "<a href='https://Twitter.com/" + parsedData.user + "'> Contact Me</a></div>";
+
             return result;
         }
     });
