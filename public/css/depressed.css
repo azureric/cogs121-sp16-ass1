@@ -1,5 +1,7 @@
 body {
-    background-image:url("../img/depressed.jpg");
+    background-image:
+            linear-gradient(rgba(81, 103, 118, 0.5), rgba(81, 103, 118, 0.5)),
+            url("../img/depressed.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
