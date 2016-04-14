@@ -21,12 +21,14 @@
         var parsedData = JSON.parse(data);
         console.log(parsedData);
 
-        if(document.getElementById('needSupport').checked) {
-            var supporterid = 'needSupport';
-        }
-        if(document.getElementById('supporter').checked) {
-            var supporterid = 'supporter';
-        }
+        var supporterid = '';
+
+        // if(document.getElementById('needSupport').checked) {
+        //     var supporterid = 'needSupport';
+        // }
+        // if(document.getElementById('supporter').checked) {
+        //     var supporterid = 'supporter';
+        // }
         $('#messages').prepend($('<li class="'+ supporterid +'">').html(messageTemplate(parsedData)));
 
         function messageTemplate(parsedData) {
