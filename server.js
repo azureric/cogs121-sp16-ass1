@@ -26,7 +26,9 @@ var router = {
     chatDepressed: require('./routes/chatDepressed'),
     chatStressed: require('./routes/chatStressed'),
     chatLonely: require('./routes/chatLonely'),
-    chatMeetup: require('./routes/chatMeetup')
+    chatMeetup: require('./routes/chatMeetup'),
+    chatSupport: require('./routes/chatSupport')
+
 };
 
 var parser = {
@@ -119,6 +121,8 @@ app.get("/chatDepressed", router.chatDepressed.view);
 app.get("/chatStressed", router.chatStressed.view);
 app.get("/chatLonely", router.chatLonely.view);
 app.get("/chatMeetup", router.chatMeetup.view);
+app.get("/chatSupport", router.chatMeetup.view);
+
 
 // More routes here if needed
 app.get('/auth/twitter', passport.authenticate('twitter'));
@@ -289,6 +293,33 @@ io.on('connection', function(socket) {
                 return;
             }
             io.emit('meetup', JSON.stringify(newMeetupPost));
+        }
+    });
+
+
+    socket.on('support', function(msg) {
+        try {
+            var user = socket.request.session.passport.user;
+        } catch(err) {
+            console.log("no user authenticated");
+            return;
+        }
+
+        var newSupportPost = new models.Newsfeed({
+            'type': 'support',
+            'user': user.username,
+            'photo': user.photo,
+            'message': msg,
+            'posted': Date.now()
+        });
+        console.log("new support post");
+        newSupportPost.save(saved);
+        function saved(err) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            io.emit('support', JSON.stringify(newSupportPost));
         }
     });
 
