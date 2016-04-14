@@ -25,7 +25,8 @@ var router = {
     chatAnxious: require('./routes/chatAnxious'),
     chatDepressed: require('./routes/chatDepressed'),
     chatStressed: require('./routes/chatStressed'),
-    chatSupport: require('./routes/chatSupport')
+    chatLonely: require('./routes/chatLonely'),
+    chatMeetup: require('./routes/chatMeetup')
 };
 
 var parser = {
@@ -116,7 +117,9 @@ app.get("/homepage", router.homepage.view);
 app.get("/chatAnxious", router.chatAnxious.view);
 app.get("/chatDepressed", router.chatDepressed.view);
 app.get("/chatStressed", router.chatStressed.view);
-app.get("/chatSupport", router.chatSupport.view);
+app.get("/chatLonely", router.chatLonely.view);
+app.get("/chatMeetup", router.chatMeetup.view);
+
 // More routes here if needed
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback',
@@ -236,7 +239,8 @@ io.on('connection', function(socket) {
         }
     });
 
-    socket.on('support', function(msg) {
+
+    socket.on('lonely', function(msg) {
         try {
             var user = socket.request.session.passport.user;
         } catch(err) {
@@ -244,23 +248,50 @@ io.on('connection', function(socket) {
             return;
         }
 
-        var newSupportPost = new models.Newsfeed({
-            'type': 'support',
+        var newLonelyPost = new models.Newsfeed({
+            'type': 'lonely',
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now()
         });
-        console.log("new support post");
-        newSupportPost.save(saved);
+        console.log("new lonely post");
+        newLonelyPost.save(saved);
         function saved(err) {
             if(err) {
                 console.log(err);
                 return;
             }
-            io.emit('support', JSON.stringify(newSupportPost));
+            io.emit('lonely', JSON.stringify(newLonelyPost));
         }
     });
+
+    socket.on('meetup', function(msg) {
+        try {
+            var user = socket.request.session.passport.user;
+        } catch(err) {
+            console.log("no user authenticated");
+            return;
+        }
+
+        var newMeetupPost = new models.Newsfeed({
+            'type': 'meetup',
+            'user': user.username,
+            'photo': user.photo,
+            'message': msg,
+            'posted': Date.now()
+        });
+        console.log("new meetup post");
+        newMeetupPost.save(saved);
+        function saved(err) {
+            if(err) {
+                console.log(err);
+                return;
+            }
+            io.emit('meetup', JSON.stringify(newMeetupPost));
+        }
+    });
+
 });
 
 // Start Server
