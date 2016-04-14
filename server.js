@@ -148,22 +148,12 @@ io.on('connection', function(socket) {
             return;
         }
 
-        var uniqueURL = guid();
-
-        function guid(){
-            function valueURL() {
-                return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-            }
-            return valueURL() + valueURL();
-        }
-
         var newNewsfeed = new models.Newsfeed({
             'type': 'chat',
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now(),
-            'uniqueURL': uniqueURL
         });
 
         newNewsfeed.save(saved);
@@ -184,22 +174,12 @@ io.on('connection', function(socket) {
             return;
         }
 
-        var uniqueURL = guid();
-
-        function guid(){
-            function valueURL() {
-                return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-            }
-            return valueURL() + valueURL();
-        }
-
         var newAnxietyPost = new models.Newsfeed({
             'type': 'anxiety',
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now(),
-            'uniqueURL': uniqueURL
         });
 
         newAnxietyPost.save(saved);
@@ -220,22 +200,12 @@ io.on('connection', function(socket) {
             return;
         }
 
-        var uniqueURL = guid();
-
-        function guid(){
-            function valueURL() {
-                return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-            }
-            return valueURL() + valueURL();
-        }
-
         var newDepressedPost = new models.Newsfeed({
             'type': 'depressed',
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now(),
-            'uniqueURL': uniqueURL
         });
 
         newDepressedPost.save(saved);
@@ -256,22 +226,12 @@ io.on('connection', function(socket) {
             return;
         }
 
-        var uniqueURL = guid();
-
-        function guid(){
-            function valueURL() {
-                return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-            }
-            return valueURL() + valueURL();
-        }
-
         var newStressedPost = new models.Newsfeed({
             'type': 'stressed',
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now(),
-            'uniqueURL': uniqueURL
         });
 
         newStressedPost.save(saved);
@@ -293,22 +253,12 @@ io.on('connection', function(socket) {
             return;
         }
 
-        var uniqueURL = guid();
-
-        function guid(){
-            function valueURL() {
-                return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-            }
-            return valueURL() + valueURL();
-        }
-
         var newLonelyPost = new models.Newsfeed({
             'type': 'lonely',
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now(),
-            'uniqueURL': uniqueURL
         });
 
         newLonelyPost.save(saved);
@@ -329,22 +279,12 @@ io.on('connection', function(socket) {
             return;
         }
 
-        var uniqueURL = guid();
-
-        function guid(){
-            function valueURL() {
-                return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-            }
-            return valueURL() + valueURL();
-        }
-
         var newMeetupPost = new models.Newsfeed({
             'type': 'meetup',
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now(),
-            'uniqueURL': uniqueURL
         });
 
         newMeetupPost.save(saved);
@@ -366,22 +306,12 @@ io.on('connection', function(socket) {
             return;
         }
 
-        var uniqueURL = guid();
-
-        function guid(){
-            function valueURL() {
-                return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-            }
-            return valueURL() + valueURL();
-        }
-
         var newSupportPost = new models.Newsfeed({
             'type': 'support',
             'user': user.username,
             'photo': user.photo,
             'message': msg,
             'posted': Date.now(),
-            'uniqueURL': uniqueURL
         });
 
         newSupportPost.save(saved);
