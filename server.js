@@ -27,7 +27,8 @@ var router = {
     chatStressed: require('./routes/chatStressed'),
     chatLonely: require('./routes/chatLonely'),
     chatMeetup: require('./routes/chatMeetup'),
-    chatSupport: require('./routes/chatSupport')
+    chatSupport: require('./routes/chatSupport'),
+    landing: require('./routes/landing')
 
 };
 
@@ -122,6 +123,7 @@ app.get("/chatStressed", router.chatStressed.view);
 app.get("/chatLonely", router.chatLonely.view);
 app.get("/chatMeetup", router.chatMeetup.view);
 app.get("/chatSupport", router.chatMeetup.view);
+app.get("/landing", router.landing.view);
 
 
 // More routes here if needed
