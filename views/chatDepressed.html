@@ -1,3 +1,9 @@
+<head>
+    <script src="./js/sweetalert.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="./js/sweetalert.css">
+</head>
+
+
 <header>
     <a class="back" href="/homepage">
         <div class="back-button">
@@ -22,10 +28,33 @@
     <div>
         <h2>It's okay to feel depressed sometimes.</h2>
     </div>
+
+
+    <script type="text/javascript">
+        function validateForm()
+        {
+        var a=document.forms["Form"]["field1"].value;
+        if (a=="" )
+          {
+          // alert("Please tell us your feeling");
+          sweetAlert("Please tell us your feeling");
+          return false;
+          }
+
+       if(a.length > 1000)
+        {
+            sweetAlert("We know you have a lot to share about. Try connecting with others on chatroom Looking for Support instead!" );
+            return false;
+        }
+
+        }
+    </script>
+
     <div id="inner">
-        <form id="send_depressed_message" action="">
-            <input id="user_input" placeholder="We're here for you. We're listening." autocomplete="off" />
+        <form id="send_depressed_message" name="Form" onsubmit ="return validateForm()" action="" >
+            <input id="user_input" name = 'field1' placeholder="We're here for you. We're listening." autocomplete="off" />
         </form>
+
         <ul id="messages">
             {{#each depressed}}
             <hr>
