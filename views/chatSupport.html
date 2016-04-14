@@ -1,8 +1,3 @@
-<head>
-    <script src="./js/sweetalert.min.js"></script> 
-    <link rel="stylesheet" type="text/css" href="./js/sweetalert.css">
-</head>
-
 <header>
     <a class="back" href="/homepage">
         <div class="back-button">
@@ -10,8 +5,8 @@
         </div>
     </a>
     <a class="logout" href="/logout">
-        <div class="log-button">
-            Log out
+        <div class="logout-button">
+            Logout
         </div>
     </a>
     <div class="search">
@@ -20,8 +15,7 @@
         </svg>
         <input class="filtered-search" placeholder="Search username or messages" autocomplete="off" />
     </div>
-    <!-- <link rel="stylesheet" type="text/css" href="./css/community_support.css"> -->
-    <link rel="stylesheet" type="text/css" href="./css/support.css">
+    <link rel="stylesheet" type="text/css" href="./css/community_support.css">
 </header>
 <section>
     <div>
@@ -32,44 +26,6 @@
             <div class="row">
                 <div class="radio col-md-offset-2 col-md-3">
                     <label><input type="radio" name="selection" id="needSupport">I'm looking for support</label>
-
-    <script type="text/javascript">
-        function validateForm()
-        {
-        var a=document.forms["Form"]["field1"].value;
-        if (a=="" )
-          {
-          // alert("Please tell us your feeling");
-          sweetAlert("Please tell us your feeling");
-          return false;
-          }
-        if(a.length > 1000)
-        {
-            sweetAlert("We know you have a lot to share about. Try connecting with others on chatroom Looking for Support instead!" );
-            return false;
-        }
-
-        }
-    </script>
-
-    <div id="inner">
-        <form id="send_support_message" name="Form" onsubmit ="return validateForm()" method = "post" action="" >
-            <input id="user_input" name = 'field1' placeholder="Tell others how you can support them!" autocomplete="off" />
-        </form>
-
-        <ul id="messages">
-            {{#each support}}
-            <hr>
-            <li>
-                <div class="user">
-                    <div class="user-image">
-                        <img src="{{photo}}" alt="">
-                    </div>
-                    <div class="user-info">
-                        <span class="username">{{user}}</span>
-                        <br/>
-                        <span class="posted">{{posted}}</span>
-                    </div>
                 </div>
                 <div class="radio col-md-offset-2 col-md-3" style="margin-top: 10px">
                     <label><input type="radio" name="selection" id="supporter">I'm sending messages of support.</input></label>
