@@ -48,7 +48,7 @@
 
 </head>
 
-<body id="home">
+<body id="home" >
 
 <!-- Preloader -->
 <div id="preloader">
@@ -71,11 +71,10 @@
 		<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
 
-				<li class="menuItem"><a href="#firsttime">What is Got the Feels?</a></li>
 				<li class="menuItem"><a href="#useit">How to use?</a></li>
 				<li class="menuItem"><a href="#question">FAQ</a></li>
 				<li class="menuItem"><a href="#about">About</a></li>
-				<li class="menuItem"><a href="/auth/twitter">Log in via Twitter <i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li class="menuItem"><a href="/">Log out Twitter <i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 			</ul>
 		</div>
 
@@ -85,51 +84,58 @@
 <!-- What is -->
 <div id="firsttime" class="content-section-b" style="border-top: 0px">
 	<div class="container">
-		<div class="col-md-8 col-md-offset-2 text-center wrap_title">
-			<h2>Got the Feels?</h2>
-			<p class="lead" style="margin-top:0">What is Got the Feels?
-			</p>
+		<div class="col-md-12 col-md-offset-0 text-center wrap_title">
+			<h2 style="margin-top: 0px">Hi {{user}}, Got the Feels?</h2>
+			<h3 style="margin-top: 0px">Click on the emoji of your feel</h3>
 		</div>
 
 		<div class="row">
 
-			<div class="col-sm-4 wow fadeInDown text-center">
+			<div class="col-sm-3 wow fadeInDown text-center">
+				<a href="/chatAnxious">
 				<img class="rotate" src="img/icon/svg/1f616.svg" alt="Generic placeholder image" style="width: 100px">
 				<h3>Anxious</h3>
+				</a>
 				<!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
 			</div><!-- /.col-lg-4 -->
 
-			<div class="col-sm-4 wow fadeInDown text-center">
+			<div class="col-sm-3 wow fadeInDown text-center">
+				<a href="/chatDepressed">
 				<img class="rotate" src="img/icon/svg/1f626.svg" alt="Generic placeholder image" style="width: 100px">
 				<h3>Depressed</h3>
+				</a>
 				<!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
 			</div><!-- /.col-lg-4 -->
 
-			<div class="col-sm-4 wow fadeInDown text-center">
+			<div class="col-sm-3 wow fadeInDown text-center">
+				<a href="/chatStressed">
 				<img class="rotate" src="img/icon/svg/1f629.svg" alt="Generic placeholder image" style="width: 100px">
 				<h3>Stressed</h3>
+				</a>
 				<!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
 			</div><!-- /.col-lg-4 -->
 
-		</div><!-- /.row -->
-
-		<div class="row tworow">
-
-			<div class="col-sm-4 wow fadeInDown text-center">
+			<div class="col-sm-3 wow fadeInDown text-center">
+				<a href="/chatLonely">
 				<img class="rotate" src="img/icon/svg/1f610.svg" alt="Generic placeholder image" style="width: 100px">
 				<h3>Lonely</h3>
+				</a>
 				<!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
 			</div><!-- /.col-lg-4 -->
+		</div><!-- /.row -->
 
-			<div class="col-sm-4 wow fadeInDown text-center">
-				<img class="rotate" src="img/icon/svg/1f644.svg" alt="Generic placeholder image" style="width: 100px">
-				<h3>Looking for Support</h3>
-				<!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
-			</div><!-- /.col-lg-4 -->
+		<div class="col-md-12 col-md-offset-0 text-center wrap_title">
+			<h4 style="margin-top: 30px">------------------------------------------------------------</h4>
+			<a href="/chatSupport">
+			<h3 style="margin-top: 10px">Click here to make a community support meetup</h3></a>
+		</div>
 
-			<div class="col-sm-4 wow fadeInDown text-center">
-				<img class="rotate" src="img/icon/svg/1f607.svg" alt="Generic placeholder image" style="width: 100px">
-				<h3>Support Others</h3>
+		<div class="row tworow" style="margin-top: 60px">
+
+			<div class="col-sm-12 wow fadeInDown text-center">
+				<a href="/chatSupport">
+				<img class="rotate" src="img/icon/svg/1f914.svg" alt="Generic placeholder image" style="width: 100px">
+				</a>
 				<!-- <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p> -->
 			</div><!-- /.col-lg-4 -->
 

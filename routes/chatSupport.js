@@ -11,4 +11,7 @@ exports.view = function(req, res) {
         }
         res.render('chatSupport', {'support': posts});
     }
+
+
 };
+

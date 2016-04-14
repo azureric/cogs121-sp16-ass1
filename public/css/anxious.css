@@ -1,5 +1,7 @@
 body {
-    background-image:url("../img/anxious.jpg");
+    background-image:
+            linear-gradient(rgba(164, 123, 194, 0.5), rgba(164, 123, 194, 0.5)),
+            url("../img/anxious.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;

@@ -1,3 +1,9 @@
+<head>
+    <script src="./js/sweetalert.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="./js/sweetalert.css">
+</head>
+
+
 <header>
     <a class="back" href="/homepage">
         <div class="back-button">
@@ -5,8 +11,8 @@
         </div>
     </a>
     <a class="logout" href="/logout">
-        <div class="logout-button">
-            Logout
+        <div class="log-button">
+            Log out
         </div>
     </a>
     <div class="search">
@@ -19,12 +25,35 @@
 </header>
 <section>
     <div>
-        <h2>Talk your nervousness away~</h2>
+        <h2><center><b>Talk your nervousness away~</b></center></h2>
     </div>
+
+    <script type="text/javascript">
+        function validateForm()
+        {
+        var a=document.forms["Form"]["field1"].value;
+        if (a=="" )
+          {
+          // alert("Please tell us your feeling");
+          sweetAlert("Please tell us your feeling");
+          return false;
+          }
+      
+       if(a.length > 1000)
+        {
+            sweetAlert("We know you have a lot to share about. Try connecting with others on chatroom Looking for Support instead!" );
+            return false;
+        }
+
+
+        }
+    </script>
+
     <div id="inner">
-        <form id="send_anxious_message" action="">
-            <input id="user_input" placeholder="You're not crazy, tell us what's on your mind." autocomplete="off" />
+        <form id="send_anxious_message" name="Form" onsubmit ="return validateForm()" action="" >
+            <input id="user_input" name = 'field1' placeholder="You're not crazy, tell us what's on your mind" autocomplete="off" />
         </form>
+
         <ul id="messages">
             {{#each anxiety}}
             <hr>

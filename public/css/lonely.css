@@ -1,5 +1,7 @@
 body {
-    background-image:url("../img/lonely.jpg");
+    background-image:
+            linear-gradient(rgba(220, 151, 83, 0.4), rgba(220, 151, 83, 0.4)),
+            url("../img/lonely.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
