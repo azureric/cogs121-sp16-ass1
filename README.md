@@ -2,7 +2,7 @@
 ------------------------------------------------------------------- 
 #Distribution of work: 
 
-*Anjelica Thang: Set up socket.io
+*Anjelica Thang: Set up socket.io, implement chat pages onto all chat forums
 
 *Bonnie Chinh: Set up socket.io, design homepage and chat page 
 
@@ -16,14 +16,13 @@
 #Heuristics Design 
 
 ##Visibility of system status
-- When user comments on a chat room, other users are able to see it without refreshing their page. Our system use of Socket.io allows users to be informed and updated real-tine on what is going on. 
+- When user comments on a chat room, other users are able to see it without refreshing their page. Our system use of Socket.io allows users to be informed and updated real-time on what is going on.
  
 ##Match between system and the real world
 - Our system uses users' language that are relatable and welcoming to the user. For example, our chat box are named after different symptoms that user may feel and follow real-world conventions. 
 
 ##User control and freedom
--
-Users often choose system functions by mistake and will need a clearly marked "emergency exit" to leave the unwanted state without having to go through an extended dialogue. Support undo and redo.
+- Users often choose system functions by mistake and will need a clearly marked "emergency exit" to leave the unwanted state without having to go through an extended dialogue. Support undo and redo.
  
 ##Consistency and standards
 - As shown by our layout of different chatrooms, our system keeps consistency in different design elements on our website, which minimizes confusions by users. 
@@ -37,7 +36,6 @@ Users often choose system functions by mistake and will need a clearly marked "e
 ##Flexibility and efficiency of use
 - By allowing our users to press "Enter" to submit a message, it speeds up communication between our users and make our system more efficient for users who utilize this function often. 
 
- 
 ##Aesthetic and minimalist design
 -- Our system keeps a minimalist design that focuses mainly on the different chatroom and in creating a calming, safe environment for our users. We organize our application to contain only information as needed. 
  
