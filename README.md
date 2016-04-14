@@ -2,15 +2,16 @@
 ------------------------------------------------------------------- 
 #Distribution of work: 
 
-*Anjelica Thang: Set up socket.io, implement chat pages onto all chat forums
+*Anjelica Thang:    Set up socket.io, implement chat pages onto all chat forums,
+                    assist with the design of chat pages
 
-*Bonnie Chinh: Set up socket.io, design homepage and chat page 
+*Bonnie Chinh:      Set up socket.io, design homepage and chat page
 
-*Chen Yang: Set up passport.js
+*Chen Yang:         Set up passport.js, design homepage to be more user-friendly
 
-*Joseph Martin: Set up socket.io
+*Joseph Martin:     Set up socket.io,
 
-*Lok Wong: Set up passport.js
+*Lok Wong:          Set up passport.js,
  
 ------------------------------------------------------------------- 
 #Heuristics Design 
@@ -40,7 +41,7 @@
     provide good error messages.
  
 ##Recognition rather than recall
--   Our team implemented a search bar on all chat room to minimize user's memory load as user can find past
+-   Our team implemented a search bar on all chat room to minimize user's memory load as the user can find past
     history using our function. User do not need to remember past information as they can retrieve that
     information through the search bar.
  
@@ -57,5 +58,5 @@
     and constructively suggest a solution.
  
 ##Help and documentation
--   Our system has a simple, minimalist "learn page" that helps users familize themselves with the functions
+-   Our system has a simple, minimalist "learn page" that helps users familiarize themselves with the functions
     provided by our application.
