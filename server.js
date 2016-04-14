@@ -113,7 +113,7 @@ passport.deserializeUser(function(user, done) {
 });
 // Routes
 /* TODO: Routes for OAuth using Passport */
-app.get("/", router.index.view);
+app.get("/", router.landing.view);
 app.get("/chat", router.chat.view);
 app.get("/homepage", router.homepage.view);
 app.get("/chatAnxious", router.chatAnxious.view);
