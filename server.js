@@ -122,7 +122,7 @@ app.get("/chatDepressed", router.chatDepressed.view);
 app.get("/chatStressed", router.chatStressed.view);
 app.get("/chatLonely", router.chatLonely.view);
 app.get("/chatMeetup", router.chatMeetup.view);
-app.get("/chatSupport", router.chatMeetup.view);
+app.get("/chatSupport", router.chatSupport.view);
 app.get("/landing", router.landing.view);
 
 
