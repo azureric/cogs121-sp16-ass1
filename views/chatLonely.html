@@ -2,9 +2,6 @@
     <script src="./js/sweetalert.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="./js/sweetalert.css">
 </head>
-
-
-
 <header>
     <a class="back" href="/homepage">
         <div class="back-button">
@@ -26,30 +23,11 @@
 </header>
 <section>
     <div>
-        <h2><center><b>A buddy is here to listen and talk.</b></center></h2>
+        <h2>A buddy is here to listen and talk.</h2>
     </div>
-
-
-    <script type="text/javascript">
-        function validateForm()
-        {
-        var a=document.forms["Form"]["field1"].value;
-        if (a=="" )
-          {
-          // alert("Please tell us your feeling");
-          sweetAlert("Please tell us your feeling");
-          return false;
-          }
-        if(a.length > 1000)
-        {
-            sweetAlert("We know you have a lot to share about. Try connecting with others on chatroom Looking for Support instead!" );
-            return false;
-        } 
-        }
-    </script>
-
+    
     <div id="inner">
-        <form id="send_lonrly_message" name="Form" onsubmit ="return validateForm()" action="" >
+        <form id="send_lonely_message" name="Form" onsubmit ="return validateForm()" action="" >
             <input id="user_input" name = 'field1' placeholder="You're not alone, the community is your friend." autocomplete="off" />
         </form>
 

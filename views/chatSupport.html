@@ -22,7 +22,7 @@
         <h2 class="chatTitle">We are here to support you!</h2>
     </div>
     <div id="inner-support">
-        <form id="radio-form">
+        <form id="radio-form" onsubmit="return validateForm()" action="">
             <div class="row">
                 <div class="radio col-md-offset-2 col-md-3">
                     <label><input type="radio" name="selection" id="needSupport">I'm looking for support</label>
@@ -32,8 +32,8 @@
                 </div>
             </div>
         </form>
-        <form id="send_support_message" action="">
-            <input id="user_input" placeholder="Post a your concerns or a message of support!" autocomplete="off" />
+        <form id="send_support_message" name='Form' onsubmit="return validateForm()" action="" >
+            <input id="user_input" name='field1'placeholder="Post a your concerns or a message of support!" autocomplete="off" />
         </form>
         <div id="container">
             <ul class="list" id="messages">

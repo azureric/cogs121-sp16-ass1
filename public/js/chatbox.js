@@ -2,6 +2,9 @@
     "use strict";
         var socket = io();
         $('form#send_message').submit(function(event) {
+            if(!validateForm()) {
+                return false;
+            }
             event.stopPropagation();
             var userInput = $('#user_input');
             socket.emit('newsfeed', userInput.val()); //get user input
@@ -33,4 +36,18 @@
             return result;
         }
     });
+
+    function validateForm() {
+        var a=document.forms["Form"]["field1"].value;
+        if (a=="" ) {
+          // alert("Please tell us your feeling");
+            sweetAlert("Please tell us about your feelings.");
+            return false;
+        } else if(a.length > 1000) {
+            sweetAlert("We know you have a lot to share. Try connecting with others privately or shorten your message so we can all share the space!" );
+            return false;
+        } else {
+            return true;
+        }
+    }
 })($);

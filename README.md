@@ -35,7 +35,7 @@ Got the Feels is an app dedicated to confronting the stigma of mental health and
 -   As shown by our layout of different chatrooms, our system keeps consistency in different design elements and functions on our website, which minimizes confusion by users. Although each chat is different to mark uniqueness, shown through color and a title, the overall design layout and concept is the same. The community support room, which is most different from the other rooms in terms of functionality, also contains the most different chatroom appearance even though it still follows the same general concept of all the chatrooms.
  
 **Error prevention**
--   Our team implemented form validation which alerts users if they type in no word or more than 1500 words in our chatroom. 
+-   We provide a brief description of the app, a visual tutorial, FAQs, and a clean design to help our users understand how to use the app and how to avoid errors. There are multiple resources consistently available on our app that help guide our users through the process of using our app. Our team also implemented a form validation which alerts users if they type messages containing 1000 or more characters in our chatroom, which helps ourselves prevent errors and handle messaging better. 
  
 **Recognition rather than recall**
 -   At the top of each chat room, we display a search bar to minimize the user's memory load and allow the user to easily find past history and filter through posts using keywords or word phrases. We also use the same emoticons to represent specific emotions from the sign-in screen to the homepage so users can begin to easily recognize which emoticons represent what emotion on our app. 
@@ -48,7 +48,7 @@ Got the Feels is an app dedicated to confronting the stigma of mental health and
 -   Our system keeps a minimalist design through minimizing the amount of texts on all the sites and centeralizing it to focus on the different chatroom, and creating a calming, safe environment for our users. Our functions are simple to use and we do not have any clustered buttons or paragraphs that may degrade our minimalist design.
 
 **Help users recognize, diagnose, and recover from errors**
--   Our system provides pop-up alert messages to help users recognize errors and fix them.
+-   Our system provides pop-up alert messages to help users recognize errors and fix them. The alerts let users know when their messages are too long to be posted or are blank.
 
 **Help and documentation**
 -   Our system has a simple, minimalist tutorial both before a user logs in and after. The tutorial is available before logging in so that it can attract users who may not know enough about the app yet or want to first familiarize themselves with the functions provided. After logging in, we provide the same tutorial as a resource in case our users run into any problems or questions.

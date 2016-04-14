@@ -25,29 +25,8 @@
 </header>
 <section>
     <div>
-        <h2><center><b>Talk your nervousness away~</b></center></h2>
+        <h2>Talk your nervousness away~</h2>
     </div>
-
-    <script type="text/javascript">
-        function validateForm()
-        {
-        var a=document.forms["Form"]["field1"].value;
-        if (a=="" )
-          {
-          // alert("Please tell us your feeling");
-          sweetAlert("Please tell us your feeling");
-          return false;
-          }
-      
-       if(a.length > 1000)
-        {
-            sweetAlert("We know you have a lot to share about. Try connecting with others on chatroom Looking for Support instead!" );
-            return false;
-        }
-
-
-        }
-    </script>
 
     <div id="inner">
         <form id="send_anxious_message" name="Form" onsubmit ="return validateForm()" action="" >
