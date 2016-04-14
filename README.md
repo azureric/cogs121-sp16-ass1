@@ -3,15 +3,15 @@
 #Distribution of work: 
 
 * Anjelica Thang:    Set up socket.io, implement chat pages onto all chat forums,
-                    assist with the design of chat pages
+                    assist with the design of chat pages, and chat front page.
 
-*Bonnie Chinh:      Set up socket.io, design homepage and chat page
+* Bonnie Chinh:      Set up socket.io and different chat rooms, help with backend, and design homepage and chat page.
 
-*Chen Yang:         Set up passport.js, design homepage to be more user-friendly
+* Chen Yang:         Set up passport.js, implemented landing page and homepage layout, functionality, and design.
 
-*Joseph Martin:     Set up socket.io,
+* Joseph Martin:     Set up socket.io and help with design.
 
-*Lok Wong:          Set up passport.js, implement different chart forums and contact me function, README 
+* Lok Wong:          Set up passport.js, implement different chat forums and contact me function, README documentation, and error messages.
  
 ------------------------------------------------------------------- 
 #Heuristics Design 
@@ -21,41 +21,31 @@
     Our system use of Socket.io allows users to be informed and updated real-time on what is going on.
  
 **Match between system and the real world**
--   Our system uses users' language that are relatable and welcoming to the user. We implement this on all our
-    pages so that the user is able to use our app without much difficulty as the wordings provide a general
-    idea on the page they are currently on or what the different pages are for in the case of the homepage.
-    For example, our chat box are named after different symptoms that user may feel and follow real-world conventions.
+-   Our system utilizes user's language  that matches real world and allow user to be able to use our app without much difficulty as the wordings follow real-world conventions. 
 
 **User control and freedom**
--   Users often choose system functions by mistake and will need a clearly marked "emergency exit" to
-    leave the unwanted state without having to go through an extended dialogue. Support undo and redo.
--   We implemented a back button on the application so that the user is able to go back to the previous
+-   Our team implemented a back button on the application so that the user is able to go back to the previous
     page as needed.
  
 **Consistency and standards**
--   As shown by our layout of different chatrooms, our system keeps consistency in different design elements
-    on our website, which minimizes confusions by users.
+-   As shown by our layout of different chatrooms, our system keeps consistency in different design elements and functions on our website, which minimizes confusions by users. 
  
 **Error prevention**
--   Our system accounts for error-prone conditions by using the Twitter API to validate user accounts and to
-    provide good error messages.
+-   Our team implemented form validation which alerts users if they type in no word or more than 1500 words in our chatroom. 
  
 **Recognition rather than recall**
--   Our team implemented a search bar on all chat room to minimize user's memory load as the user can find past
-    history using our function. User do not need to remember past information as they can retrieve that
-    information through the search bar.
+-   Our team implemented a search bar on all chat room to minimize user's memory load as the user can find past history using our function. 
  
-###Flexibility and efficiency of use
+**Flexibility and efficiency of use**
 -   By allowing our users to press "Enter" to submit a message, it speeds up communication between our users
     and make our system more efficient for users who utilize this function often.
 
-###Aesthetic and minimalist design
--   Our system keeps a minimalist design that focuses mainly on the different chatroom and in creating a
-    calming, safe environment for our users. We organize our application to contain only information as needed.
- 
-###Help users recognize, diagnose, and recover from errors
--   Our system provides messages to help users recover from errors through using the Twitter API and by creating a documentation page.
+**Aesthetic and minimalist design**
+-   Our system keeps a minimalist design through minimizing the amount of texts on all the sites and centeralizing it to focus on the different chatroom, and creating a calming, safe environment for our users.
 
-###Help and documentation
--   Our system has a simple, minimalist "learn page" that helps users familiarize themselves with the functions
-    provided by our application.
+ 
+**Help users recognize, diagnose, and recover from errors**
+-   Our system provides pop-up alert messages to help users recognize errors and fix them. 
+
+**Help and documentation**
+-   Our system has a simple, minimalist "learn page" when user logs in to help users familiarize themselves with the functions provided. 
