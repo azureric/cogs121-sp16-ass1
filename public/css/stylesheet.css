@@ -32,3 +32,68 @@ body {
 	top: 10px;
 	left: 10px
 }
+
+.radio {
+	text-align: left;
+}
+
+.supporter {
+	background-color: #E2ABFF;
+}
+
+.needSupport {
+	background-color: #FFB891;
+}
+
+label #supporter {
+	color: #E2ABFF;
+	font-weight: bold;
+}
+
+label #needSupport {
+	color: #FFB891;
+	font-weight: bold;
+}
+
+#inner-support {
+	display:table;
+	margin: 0 auto;
+	width: 80%;
+}
+
+.chatTitle {
+	text-align: center;
+}
+
+div.thumbnail.grid {
+	max-width: 31.3%;
+	display: inline-block;
+	float: left;
+	margin: 1%;
+}
+
+.thumbnail li {
+	list-style: none;
+}
+
+/*form#send_support_message {
+	border:1px #a4ccd5 solid;
+*/	/*border-radius:3px;
+	/*background-color:#fafafa;
+	width:100%;
+	height:50px;
+}
+
+form>input#send_support_message {
+	border:0;
+	background:0;
+	padding-top:0;
+	padding-bottom:0;
+	padding-left:0px;
+	padding-right:0px;
+	max-width: 80%;
+	min-height:100%;
+	max-height:100%;
+	font-family:'Lato', sans-serif;
+	font-size:16px
+}*/

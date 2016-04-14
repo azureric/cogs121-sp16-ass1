@@ -15,46 +15,53 @@
         </svg>
         <input class="filtered-search" placeholder="Search username or messages" autocomplete="off" />
     </div>
-    <link rel="stylesheet" type="text/css" href="./css/anxious.css">
+    <link rel="stylesheet" type="text/css" href="./css/community_support.css">
 </header>
 <section>
     <div>
-        <h2>We are here to support you!</h2>
+        <h2 class="chatTitle">We are here to support you!</h2>
     </div>
-    <div id="inner">
+    <div id="inner-support">
+        <form id="radio-form">
+            <div class="row">
+                <div class="radio col-md-offset-2 col-md-3">
+                    <label><input type="radio" name="selection" id="needSupport">I'm looking for support</label>
+                </div>
+                <div class="radio col-md-offset-2 col-md-3" style="margin-top: 10px">
+                    <label><input type="radio" name="selection" id="supporter">I'm sending messages of support.</input></label>
+                </div>
+            </div>
+        </form>
         <form id="send_support_message" action="">
             <input id="user_input" placeholder="Post a your concerns or a message of support!" autocomplete="off" />
         </form>
-        <div class="radio">
-            <label><input type="radio" name="optradio" id="{{posted}}">I'm looking for support</label>
+        <div id="container">
+            <ul class="list" id="messages">
+                {{#each support}}
+                <div class="thumbnail grid">
+                    <li>
+                        <div class="user">
+                            <div class="user-image">
+                                <img src="{{photo}}" alt="">
+                            </div>
+                            <div class="user-info">
+                                <span class="username">{{user}}</span>
+                                <br/>
+                                <span class="posted">{{posted}}</span>
+                            </div>
+                        </div>
+                        <div class="message-content">
+                            {{message}}
+                        </div>
+                        <div class ="message">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <a href="https://Twitter.com/{{user}}">Contact Me</a>
+                        </div>
+                    </li>
+                </div>
+                {{/each}}
+            </ul>
         </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio" id="{{posted}}">I'm sending messages of support.</input></label>
-        </div>
-        <ul id="messages">
-            {{#each support}}
-            <hr>
-            <li>
-                <div class="user">
-                    <div class="user-image">
-                        <img src="{{photo}}" alt="">
-                    </div>
-                    <div class="user-info">
-                        <span class="username">{{user}}</span>
-                        <br/>
-                        <span class="posted">{{posted}}</span>
-                    </div>
-                </div>
-                <div class="message-content">
-                    {{message}}
-                </div>
-                <div class ="message">
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                    <a href="https://Twitter.com/{{user}}">Contact Me</a>
-                </div>
-            </li>
-            {{/each}}
-        </ul>
     </div>
 </section>
 <footer>

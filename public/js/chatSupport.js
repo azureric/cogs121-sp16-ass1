@@ -5,15 +5,26 @@
     $('form#send_support_message').submit(function(event) {
         event.stopPropagation();
         var userInput = $('#user_input');
-        socket.emit('support', userInput.val()); //get user input
-        userInput.val('');                            //clear user input
+        socket.emit('support', userInput.val());
+        userInput.val('');
+
+        var radioForm = document.getElementById('#radio-form');
+        radioForm.submit();
+        window.reload;
         return false;
     });
 
     socket.on("support", function(data) {
         var parsedData = JSON.parse(data);
+        console.log(parsedData);
 
-        $('#messages').prepend($('<li>').html(messageTemplate(parsedData)));
+        if(document.getElementById('needSupport').checked) {
+            var supporterid = 'needSupport';
+        }
+        if(document.getElementById('supporter').checked) {
+            var supporterid = 'supporter';
+        }
+        $('#messages').prepend($('<li class="'+ supporterid +'">').html(messageTemplate(parsedData)));
 
         function messageTemplate(parsedData) {
             var result = '<div class="user">' +
